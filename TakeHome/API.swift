@@ -52,8 +52,53 @@ extension APICall: TargetType {
     }
 }
 
+enum ExternalURL {
+    case retrieve(url: URL)
+}
+
+extension ExternalURL : TargetType {
+    var baseURL: URL {
+        switch self {
+        case .retrieve(let url):
+            return url
+        }
+    }
+    
+    var path: String {
+        switch self {
+        case .retrieve:
+            return ""
+        }
+    }
+    
+    var method: Moya.Method {
+        switch self {
+        case .retrieve:
+            return .get
+        }
+    }
+    
+    var sampleData: Data {
+        return Data("".utf8)
+    }
+    
+    var task: Task {
+        switch self {
+        case .retrieve:
+            return .requestPlain
+        }
+    }
+    
+    var headers: [String : String]? {
+        return nil
+    }
+}
+
+typealias APIProvider = MoyaProvider<APICall>
+typealias ImageProvider = MoyaProvider<ExternalURL>
+
 extension MoyaProvider {
-    static func standardProvider(timeout: TimeInterval) -> MoyaProvider<Target> {
+    static func standardProvider(timeout: TimeInterval = 60) -> MoyaProvider<Target> {
         let plugins = Env.isDebug ? [NetworkLoggerPlugin(configuration: .init(logOptions: .verbose))] : []
         let session: Session = {
             let configuration = URLSessionConfiguration.default

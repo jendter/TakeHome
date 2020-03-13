@@ -12,10 +12,13 @@ import Mapper
 import Moya_ModelMapper
 
 class CategoryCoordinator {
-    let apiProvider: MoyaProvider<APICall>
+    let apiProvider: APIProvider
+    let imageProvider: ImageProvider
     
-    init(apiProvider: MoyaProvider<APICall> = .standardProvider(timeout: 10)) {
+    init(apiProvider: APIProvider = .standardProvider(timeout: 30),
+         imageProvider: ImageProvider = .standardProvider(timeout: 60)) {
         self.apiProvider = apiProvider
+        self.imageProvider = imageProvider
     }
     
     lazy var rootViewController: UINavigationController = {
@@ -35,6 +38,7 @@ class CategoryCoordinator {
     func showServerError(title: String, message: String) {
         let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
         alertController.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+        rootViewController.present(alertController, animated: true, completion: nil)
     }
 }
 
@@ -62,7 +66,7 @@ extension CategoryCoordinator: CategoryViewDelegate {
             }
             
         case .selectedCategory(let category):
-            let adList = AdListViewController(viewModel: .init(category: category), delegate: self)
+            let adList = AdListViewController(viewModel: .init(category: category, imageProvider: imageProvider), delegate: self)
             adList.refreshData()
             rootViewController.pushViewController(adList, animated: true)
         }

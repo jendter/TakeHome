@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Moya
 
 enum AdListViewEvent {
     case refresh
@@ -19,6 +20,7 @@ protocol AdListViewDelegate: class {
 class AdListViewModel: NSObject {
     // Data
     let category: Category
+    let imageProvider: ImageProvider
     var ads = [Ad]() {
         didSet {
             let newValue = ads
@@ -32,8 +34,9 @@ class AdListViewModel: NSObject {
     weak var view: AdListViewController?
     
     // Init
-    init(category: Category) {
+    init(category: Category, imageProvider: ImageProvider) {
         self.category = category
+        self.imageProvider = imageProvider
     }
 
     // Binding
@@ -52,7 +55,7 @@ extension AdListViewModel: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: AdListViewController.cellReuseIdentifer, for: indexPath) as! AdCell
         let ad = ads[indexPath.row]
-        cell.textLabel?.text = ad.title
+        cell.viewModel = .init(ad: ad, imageProvider: imageProvider)
         return cell
     }
 }
@@ -124,5 +127,9 @@ class AdListViewController: UIViewController {
 extension AdListViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 60
     }
 }
