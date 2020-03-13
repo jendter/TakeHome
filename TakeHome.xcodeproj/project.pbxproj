@@ -26,6 +26,7 @@
 		D2476FE0241B209B00797C26 /* AdListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2476FDF241B209B00797C26 /* AdListViewController.swift */; };
 		D2476FE2241B47CF00797C26 /* UITableView+Refresh.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2476FE1241B47CF00797C26 /* UITableView+Refresh.swift */; };
 		D2476FE4241B508100797C26 /* AdCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2476FE3241B508100797C26 /* AdCell.swift */; };
+		D2476FE8241B6CB000797C26 /* CategoryNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2476FE7241B6CB000797C26 /* CategoryNavigationController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -75,6 +76,7 @@
 		D2476FDF241B209B00797C26 /* AdListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdListViewController.swift; sourceTree = "<group>"; };
 		D2476FE1241B47CF00797C26 /* UITableView+Refresh.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableView+Refresh.swift"; sourceTree = "<group>"; };
 		D2476FE3241B508100797C26 /* AdCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdCell.swift; sourceTree = "<group>"; };
+		D2476FE7241B6CB000797C26 /* CategoryNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryNavigationController.swift; sourceTree = "<group>"; };
 		E4340211405125EDA2FE04A9 /* Pods-TakeHome-TakeHomeUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TakeHome-TakeHomeUITests.debug.xcconfig"; path = "Target Support Files/Pods-TakeHome-TakeHomeUITests/Pods-TakeHome-TakeHomeUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		EA621115265AEC59288B7CE2 /* Pods-TakeHome.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TakeHome.debug.xcconfig"; path = "Target Support Files/Pods-TakeHome/Pods-TakeHome.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -161,6 +163,7 @@
 				D215652924198E4E007DD48E /* API.swift */,
 				D215652B241992A3007DD48E /* Models.swift */,
 				D215652F24199656007DD48E /* CategoryCoordinator.swift */,
+				D2476FE7241B6CB000797C26 /* CategoryNavigationController.swift */,
 				D21565332419D042007DD48E /* CategoryViewController.swift */,
 				D21565352419D3F3007DD48E /* CategoryCell.swift */,
 				D2476FDF241B209B00797C26 /* AdListViewController.swift */,
@@ -438,6 +441,7 @@
 				D21564FC24198E3C007DD48E /* SceneDelegate.swift in Sources */,
 				D21565342419D042007DD48E /* CategoryViewController.swift in Sources */,
 				D2476FE2241B47CF00797C26 /* UITableView+Refresh.swift in Sources */,
+				D2476FE8241B6CB000797C26 /* CategoryNavigationController.swift in Sources */,
 				D21565362419D3F3007DD48E /* CategoryCell.swift in Sources */,
 				D215652A24198E4E007DD48E /* API.swift in Sources */,
 				D215652C241992A3007DD48E /* Models.swift in Sources */,
