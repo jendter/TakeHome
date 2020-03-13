@@ -32,17 +32,23 @@ class AdCellViewModel {
     func bind(to view: AdCell) {
         self.view = view
         
+        // Set text labels
         view.titleLabel.text = ad.title
         view.priceLabel.text = ad.price
         
+        // Load ad image
         imageRequest?.cancel()
         view.imageView?.image = AdCell.placeholderProductImage
         if let imageUrl = ad.imageUrl {
             imageRequest = imageProvider.request(.retrieve(url: imageUrl)) { [weak view] (result) in
                 switch result {
                 case .success(let response):
+                    // Set image with small crossfade animation
                     DispatchQueue.main.async {
-                        view?.productImageView.image = UIImage(data: response.data)
+                        guard let imageView = view?.productImageView else { return }
+                        UIView.transition(with: imageView, duration: 0.2, options: .transitionCrossDissolve, animations: {
+                            view?.productImageView.image = UIImage(data: response.data)
+                        }, completion: nil)
                     }
                 case .failure(_):
                     break
