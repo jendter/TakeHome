@@ -27,6 +27,10 @@
 		D2476FE2241B47CF00797C26 /* UITableView+Refresh.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2476FE1241B47CF00797C26 /* UITableView+Refresh.swift */; };
 		D2476FE4241B508100797C26 /* AdCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2476FE3241B508100797C26 /* AdCell.swift */; };
 		D2476FE8241B6CB000797C26 /* CategoryNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2476FE7241B6CB000797C26 /* CategoryNavigationController.swift */; };
+		D27B8096241C1647000E905A /* categories-sample.json in Resources */ = {isa = PBXBuildFile; fileRef = D27B8095241C1647000E905A /* categories-sample.json */; };
+		D27B8097241C1653000E905A /* categories-sample.json in Resources */ = {isa = PBXBuildFile; fileRef = D27B8095241C1647000E905A /* categories-sample.json */; };
+		D27B8099241C18FA000E905A /* ads-sample.json in Resources */ = {isa = PBXBuildFile; fileRef = D27B8098241C18FA000E905A /* ads-sample.json */; };
+		D27B809A241C2609000E905A /* ads-sample.json in Resources */ = {isa = PBXBuildFile; fileRef = D27B8098241C18FA000E905A /* ads-sample.json */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -77,6 +81,8 @@
 		D2476FE1241B47CF00797C26 /* UITableView+Refresh.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableView+Refresh.swift"; sourceTree = "<group>"; };
 		D2476FE3241B508100797C26 /* AdCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdCell.swift; sourceTree = "<group>"; };
 		D2476FE7241B6CB000797C26 /* CategoryNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryNavigationController.swift; sourceTree = "<group>"; };
+		D27B8095241C1647000E905A /* categories-sample.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "categories-sample.json"; sourceTree = "<group>"; };
+		D27B8098241C18FA000E905A /* ads-sample.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "ads-sample.json"; sourceTree = "<group>"; };
 		E4340211405125EDA2FE04A9 /* Pods-TakeHome-TakeHomeUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TakeHome-TakeHomeUITests.debug.xcconfig"; path = "Target Support Files/Pods-TakeHome-TakeHomeUITests/Pods-TakeHome-TakeHomeUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		EA621115265AEC59288B7CE2 /* Pods-TakeHome.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TakeHome.debug.xcconfig"; path = "Target Support Files/Pods-TakeHome/Pods-TakeHome.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -181,6 +187,8 @@
 			isa = PBXGroup;
 			children = (
 				D215651024198E3D007DD48E /* TakeHomeTests.swift */,
+				D27B8095241C1647000E905A /* categories-sample.json */,
+				D27B8098241C18FA000E905A /* ads-sample.json */,
 				D215651224198E3D007DD48E /* Info.plist */,
 			);
 			path = TakeHomeTests;
@@ -304,8 +312,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D27B809A241C2609000E905A /* ads-sample.json in Resources */,
 				D215650624198E3D007DD48E /* LaunchScreen.storyboard in Resources */,
 				D215650324198E3D007DD48E /* Assets.xcassets in Resources */,
+				D27B8097241C1653000E905A /* categories-sample.json in Resources */,
 				D215650124198E3C007DD48E /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -314,6 +324,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D27B8099241C18FA000E905A /* ads-sample.json in Resources */,
+				D27B8096241C1647000E905A /* categories-sample.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -9,7 +9,7 @@
 import Foundation
 import Mapper
 
-struct Category: Mappable {
+struct AdCategory: Mappable {
     let id: Int
     let name: String
     let count: Int

@@ -37,7 +37,17 @@ extension APICall: TargetType {
     }
     
     var sampleData: Data {
-        return Data("".utf8)
+        func jsonData(fileName: String) -> Data? {
+            guard let path = Bundle.main.path(forResource: fileName, ofType: "json") else { return nil }
+            return (try? Data(contentsOf: URL(fileURLWithPath: path)))
+        }
+        
+        switch self {
+        case .categories:
+            return jsonData(fileName: "categories-sample")!
+        case .ads(_):
+            return jsonData(fileName: "ads-sample")!
+        }
     }
     
     var task: Task {
@@ -98,8 +108,8 @@ typealias APIProvider = MoyaProvider<APICall>
 typealias ImageProvider = MoyaProvider<ExternalURL>
 
 extension MoyaProvider {
-    static func standardProvider(timeout: TimeInterval = 60) -> MoyaProvider<Target> {
-        let plugins = Env.isDebug ? [NetworkLoggerPlugin(configuration: .init(logOptions: .verbose))] : []
+    static func standardProvider(timeout: TimeInterval = 60, logging: Bool = Env.isDebug) -> MoyaProvider<Target> {
+        let plugins = logging ? [NetworkLoggerPlugin(configuration: .init(logOptions: .verbose))] : []
         let session: Session = {
             let configuration = URLSessionConfiguration.default
             configuration.headers = .default

@@ -19,7 +19,7 @@ protocol AdListViewDelegate: class {
 
 class AdListViewModel: NSObject {
     // Data
-    let category: Category
+    let category: AdCategory
     let imageProvider: ImageProvider
     var ads = [Ad]() {
         didSet {
@@ -34,7 +34,7 @@ class AdListViewModel: NSObject {
     weak var view: AdListViewController?
     
     // Init
-    init(category: Category, imageProvider: ImageProvider) {
+    init(category: AdCategory, imageProvider: ImageProvider) {
         self.category = category
         self.imageProvider = imageProvider
     }

@@ -16,7 +16,7 @@ class CategoryCoordinator {
     let imageProvider: ImageProvider
     
     init(apiProvider: APIProvider = .standardProvider(timeout: 30),
-         imageProvider: ImageProvider = .standardProvider(timeout: 60)) {
+         imageProvider: ImageProvider = .standardProvider(timeout: 60, logging: false)) {
         self.apiProvider = apiProvider
         self.imageProvider = imageProvider
     }
@@ -54,7 +54,7 @@ extension CategoryCoordinator: CategoryViewDelegate {
                 switch result {
                 case .success(let response):
                     do {
-                        let categories = try response.map(to: [Category].self)
+                        let categories = try response.map(to: [AdCategory].self)
                         viewController?.viewModel.categories = categories
                     } catch let error {
                         // In a user facing app we would probably log this and present a more helpful message to the user.

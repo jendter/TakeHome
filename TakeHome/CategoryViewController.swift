@@ -11,7 +11,7 @@ import SnapKit
 
 enum CategoryViewEvent {
     case refresh
-    case selectedCategory(Category)
+    case selectedCategory(AdCategory)
 }
 
 protocol CategoryViewDelegate: class {
@@ -20,7 +20,7 @@ protocol CategoryViewDelegate: class {
 
 class CategoryViewModel: NSObject {
     // Data
-    var categories = [Category]() {
+    var categories = [AdCategory]() {
         didSet {
             let newValue = categories
             DispatchQueue.main.async {
@@ -107,7 +107,7 @@ class CategoryViewController: UIViewController {
         tableView.showRefreshControl(false)
     }
     
-    func newCategoryData(previous: [Category], new: [Category]) {
+    func newCategoryData(previous: [AdCategory], new: [AdCategory]) {
         // we could do an animated update if needed with both the previous and new data.
         tableView.reloadData()
     }

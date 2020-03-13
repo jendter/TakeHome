@@ -11,8 +11,8 @@ import SnapKit
 
 class CategoryCellViewModel {
     // Data
-    let category: Category
-    init(category: Category) {
+    let category: AdCategory
+    init(category: AdCategory) {
         self.category = category
     }
     
